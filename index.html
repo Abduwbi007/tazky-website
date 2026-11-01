@@ -2875,11 +2875,10 @@
     document.getElementById('btn-step4-prev').addEventListener('click', () => goToStep(3));
 
     // ---- Application delivery to filings@wbinfs.com ----
-    // To send applications automatically, create a form endpoint (for example at formspree.io or web3forms.com)
-    // that forwards to filings@wbinfs.com and paste its URL below. This works once the page runs on
-    // your own website. Inside the preview host, outgoing requests are blocked, so the page shows the
-    // copy-and-email step instead and never reports an application as sent unless the request succeeded.
-    const APPLICATION_ENDPOINT = '';
+    // Applications are posted to a Formspree form that forwards to filings@wbinfs.com. This works on the live
+    // website (www.tazky.in). Inside the preview host, outgoing requests are blocked, so the page shows the
+    // copy-and-email step instead. An application is only reported as sent when the request succeeds.
+    const APPLICATION_ENDPOINT = 'https://formspree.io/f/xpppygbg';
     const APPLICATION_EMAIL = 'filings@wbinfs.com';
 
     // Captcha: drawn on a canvas, checked in the page before anything is sent.
@@ -3003,7 +3002,7 @@
           const res = await fetch(APPLICATION_ENDPOINT, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(Object.assign({ _subject: 'New TazkY engineer application: ' + name }, data))
+            body: JSON.stringify(Object.assign({ _subject: 'New TazkY engineer application: ' + name, email: data['Email'] }, data))
           });
           delivered = res.ok;
         } catch (err2) { delivered = false; }
