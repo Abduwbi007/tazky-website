@@ -1059,13 +1059,199 @@
             
             <!-- Discipline Select -->
             <div>
-              <label for="calc-discipline" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">1. Your Primary Engineering Trade</label>
+              <label for="calc-discipline" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">1. Your Primary Service</label>
               <select id="calc-discipline" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3 text-sm font-semibold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
-                <option value="hvac">HVAC & Inverter AC Systems (₹1,650 avg. ticket)</option>
-                <option value="solar">Solar Energy & EV Charging Systems (₹2,100 avg. ticket)</option>
-                <option value="electrical">Smart Electrical & Home Automation (₹1,350 avg. ticket)</option>
-                <option value="appliances">Consumer Electronics & White Goods (₹1,400 avg. ticket)</option>
-                <option value="plumbing">Hydro-Mechanical & Smart Plumbing (₹1,250 avg. ticket)</option>
+                <optgroup label="C01 · CCTV &amp; Surveillance (₹1,350 avg. ticket)">
+                  <option value="C01|C01-01">CCTV Camera Installation</option>
+                  <option value="C01|C01-02">CCTV Maintenance &amp; AMC</option>
+                  <option value="C01|C01-03">CCTV Repair &amp; Troubleshooting</option>
+                  <option value="C01|C01-04">DVR/NVR Setup &amp; Configuration</option>
+                  <option value="C01|C01-05">CCTV Cabling &amp; Wiring</option>
+                  <option value="C01|C01-06">Remote Viewing / Mobile App Setup</option>
+                  <option value="C01|C01-07">Camera Relocation &amp; Upgrade</option>
+                  <option value="C01|C01-08">Old to New System Migration</option>
+                </optgroup>
+                <optgroup label="C02 · IT &amp; Computer Services (₹1,400 avg. ticket)">
+                  <option value="C02|C02-01">Desktop Repair</option>
+                  <option value="C02|C02-02">Laptop Repair</option>
+                  <option value="C02|C02-03">Operating System Installation</option>
+                  <option value="C02|C02-04">Virus &amp; Malware Removal</option>
+                  <option value="C02|C02-05">Data Recovery</option>
+                  <option value="C02|C02-06">Hardware Upgrade (RAM/SSD/HDD)</option>
+                  <option value="C02|C02-07">Printer Repair &amp; Setup</option>
+                  <option value="C02|C02-08">Software Installation &amp; Licensing</option>
+                  <option value="C02|C02-09">Computer AMC for Offices</option>
+                  <option value="C02|C02-10">Server Setup &amp; Maintenance</option>
+                </optgroup>
+                <optgroup label="C03 · Networking &amp; Internet (₹1,350 avg. ticket)">
+                  <option value="C03|C03-01">Router &amp; Modem Setup</option>
+                  <option value="C03|C03-02">WiFi Range Extension</option>
+                  <option value="C03|C03-03">Structured Cabling (LAN)</option>
+                  <option value="C03|C03-04">Switch &amp; Access Point Installation</option>
+                  <option value="C03|C03-05">Network Troubleshooting</option>
+                  <option value="C03|C03-06">VPN Setup</option>
+                  <option value="C03|C03-07">CCTV-Network Integration</option>
+                  <option value="C03|C03-08">Office Network Setup</option>
+                </optgroup>
+                <optgroup label="C04 · Energy &amp; Power Backup (₹2,100 avg. ticket)">
+                  <option value="C04|C04-01">Solar Panel Installation</option>
+                  <option value="C04|C04-02">Solar Maintenance &amp; Cleaning</option>
+                  <option value="C04|C04-03">Inverter Installation &amp; Repair</option>
+                  <option value="C04|C04-04">UPS Installation &amp; Repair</option>
+                  <option value="C04|C04-05">Battery Replacement</option>
+                  <option value="C04|C04-06">Generator Installation &amp; Service</option>
+                  <option value="C04|C04-07">Stabilizer Installation</option>
+                  <option value="C04|C04-08">Solar Inspection &amp; Audit</option>
+                </optgroup>
+                <optgroup label="C05 · Banking &amp; Financial Devices (₹1,400 avg. ticket)">
+                  <option value="C05|C05-01">ATM Maintenance</option>
+                  <option value="C05|C05-02">POS Machine Installation &amp; Repair</option>
+                  <option value="C05|C05-03">Biometric Device Setup</option>
+                  <option value="C05|C05-04">Cash Recycler / Kiosk Support</option>
+                  <option value="C05|C05-05">Passbook Printer Service</option>
+                  <option value="C05|C05-06">Currency Counting Machine Repair</option>
+                </optgroup>
+                <optgroup label="C06 · Home Appliances (₹1,400 avg. ticket)">
+                  <option value="C06|C06-01">AC Installation &amp; Service</option>
+                  <option value="C06|C06-02">Refrigerator Repair</option>
+                  <option value="C06|C06-03">Washing Machine Repair</option>
+                  <option value="C06|C06-04">Microwave Repair</option>
+                  <option value="C06|C06-05">Water Heater / Geyser Repair</option>
+                  <option value="C06|C06-06">Chimney &amp; Hob Service</option>
+                  <option value="C06|C06-07">Dishwasher Repair</option>
+                  <option value="C06|C06-08">Air Cooler Service</option>
+                </optgroup>
+                <optgroup label="C07 · Security Systems (₹1,350 avg. ticket)">
+                  <option value="C07|C07-01">Access Control Systems</option>
+                  <option value="C07|C07-02">Video Door Phone Installation</option>
+                  <option value="C07|C07-03">Burglar Alarm Systems</option>
+                  <option value="C07|C07-04">Fire Alarm Systems</option>
+                  <option value="C07|C07-05">Boom Barrier Installation</option>
+                  <option value="C07|C07-06">Intercom Systems</option>
+                  <option value="C07|C07-07">Smart Lock Installation</option>
+                </optgroup>
+                <optgroup label="C08 · Telecom &amp; Communication (₹1,350 avg. ticket)">
+                  <option value="C08|C08-01">Landline Installation</option>
+                  <option value="C08|C08-02">EPABX Setup &amp; Repair</option>
+                  <option value="C08|C08-03">Fiber / Broadband Installation</option>
+                  <option value="C08|C08-04">Mobile Tower Maintenance</option>
+                  <option value="C08|C08-05">Telephone Exchange Service</option>
+                  <option value="C08|C08-06">Intercom System Repair</option>
+                </optgroup>
+                <optgroup label="C09 · Mobile &amp; Gadget Service (₹1,400 avg. ticket)">
+                  <option value="C09|C09-01">Mobile Phone Screen Repair</option>
+                  <option value="C09|C09-02">Battery Replacement</option>
+                  <option value="C09|C09-03">Software / Flashing Issues</option>
+                  <option value="C09|C09-04">Tablet Repair</option>
+                  <option value="C09|C09-05">Smartwatch Repair</option>
+                  <option value="C09|C09-06">Mobile Accessory Setup</option>
+                </optgroup>
+                <optgroup label="C10 · Healthcare Equipment (₹1,400 avg. ticket)">
+                  <option value="C10|C10-01">Oxygen Concentrator Service</option>
+                  <option value="C10|C10-02">Wheelchair &amp; Mobility Aid Repair</option>
+                  <option value="C10|C10-03">Hospital Bed Maintenance</option>
+                  <option value="C10|C10-04">BP Monitor / Glucometer Calibration</option>
+                  <option value="C10|C10-05">Nebulizer Repair</option>
+                  <option value="C10|C10-06">Medical Refrigerator Service</option>
+                  <option value="C10|C10-07">Diagnostic Equipment AMC</option>
+                </optgroup>
+                <optgroup label="C11 · Agricultural Machinery (₹1,250 avg. ticket)">
+                  <option value="C11|C11-01">Tractor Repair &amp; Service</option>
+                  <option value="C11|C11-02">Power Tiller Repair</option>
+                  <option value="C11|C11-03">Water Pump Installation &amp; Repair</option>
+                  <option value="C11|C11-04">Irrigation System Setup (Drip/Sprinkler)</option>
+                  <option value="C11|C11-05">Agricultural Drone Service</option>
+                  <option value="C11|C11-06">Sprayer &amp; Duster Repair</option>
+                  <option value="C11|C11-07">Rice Mill &amp; Thresher Maintenance</option>
+                  <option value="C11|C11-08">Borewell Motor Repair</option>
+                </optgroup>
+                <optgroup label="C12 · Electrical Services (₹1,350 avg. ticket)">
+                  <option value="C12|C12-01">House Wiring</option>
+                  <option value="C12|C12-02">Switchboard &amp; MCB Repair</option>
+                  <option value="C12|C12-03">Electrical Fault Finding</option>
+                  <option value="C12|C12-04">Earthing Installation</option>
+                  <option value="C12|C12-05">Ceiling Fan &amp; Light Fitting</option>
+                  <option value="C12|C12-06">Industrial Electrical Work</option>
+                </optgroup>
+                <optgroup label="C13 · Plumbing &amp; Water Systems (₹1,250 avg. ticket)">
+                  <option value="C13|C13-01">Pipe Leak Repair</option>
+                  <option value="C13|C13-02">Water Tank Cleaning</option>
+                  <option value="C13|C13-03">Bathroom Fitting Installation</option>
+                  <option value="C13|C13-04">Borewell / Motor Pump Repair</option>
+                  <option value="C13|C13-05">Drainage Cleaning</option>
+                  <option value="C13|C13-06">Water Purifier &amp; RO Service</option>
+                </optgroup>
+                <optgroup label="C14 · HVAC &amp; Cold Storage (₹1,650 avg. ticket)">
+                  <option value="C14|C14-01" selected>Split / Window AC Service</option>
+                  <option value="C14|C14-02">Central AC Maintenance</option>
+                  <option value="C14|C14-03">Cold Storage Repair</option>
+                  <option value="C14|C14-04">Chiller Maintenance</option>
+                  <option value="C14|C14-05">Duct Cleaning</option>
+                </optgroup>
+                <optgroup label="C15 · Office &amp; Commercial Equipment (₹1,400 avg. ticket)">
+                  <option value="C15|C15-01">Printer / Copier AMC</option>
+                  <option value="C15|C15-02">EPABX &amp; Intercom Setup</option>
+                  <option value="C15|C15-03">Biometric Attendance System</option>
+                  <option value="C15|C15-04">Projector Installation &amp; Repair</option>
+                  <option value="C15|C15-05">Shredder Repair</option>
+                  <option value="C15|C15-06">Scanner Setup</option>
+                </optgroup>
+                <optgroup label="C16 · Industrial Machinery &amp; Automation (₹1,350 avg. ticket)">
+                  <option value="C16|C16-01">PLC / Automation Repair</option>
+                  <option value="C16|C16-02">Motor Rewinding</option>
+                  <option value="C16|C16-03">Compressor Repair</option>
+                  <option value="C16|C16-04">Generator / DG Set Service</option>
+                  <option value="C16|C16-05">Conveyor System Maintenance</option>
+                  <option value="C16|C16-06">Industrial Electrical AMC</option>
+                </optgroup>
+                <optgroup label="C17 · Audio-Video &amp; Entertainment (₹1,400 avg. ticket)">
+                  <option value="C17|C17-01">Home Theatre Installation</option>
+                  <option value="C17|C17-02">TV Mounting &amp; Repair</option>
+                  <option value="C17|C17-03">Projector &amp; Screen Setup</option>
+                  <option value="C17|C17-04">Sound System Installation</option>
+                  <option value="C17|C17-05">DJ Equipment Setup</option>
+                </optgroup>
+                <optgroup label="C18 · Elevator &amp; Lift Services (₹1,350 avg. ticket)">
+                  <option value="C18|C18-01">Lift Installation</option>
+                  <option value="C18|C18-02">Lift AMC &amp; Repair</option>
+                  <option value="C18|C18-03">Escalator Maintenance</option>
+                </optgroup>
+                <optgroup label="C19 · Fire &amp; Safety Equipment (₹1,350 avg. ticket)">
+                  <option value="C19|C19-01">Fire Extinguisher Refill / Service</option>
+                  <option value="C19|C19-02">Smoke Detector Installation</option>
+                  <option value="C19|C19-03">Sprinkler System Maintenance</option>
+                  <option value="C19|C19-04">Fire Hydrant System Check</option>
+                </optgroup>
+                <optgroup label="C20 · Educational &amp; Institutional Equipment (₹1,400 avg. ticket)">
+                  <option value="C20|C20-01">Smart Board &amp; Projector Setup</option>
+                  <option value="C20|C20-02">Biometric Attendance Systems</option>
+                  <option value="C20|C20-03">Computer Lab AMC</option>
+                  <option value="C20|C20-04">Public Address System Setup</option>
+                </optgroup>
+                <optgroup label="C21 · Retail &amp; POS Equipment (₹1,400 avg. ticket)">
+                  <option value="C21|C21-01">Billing Software Setup</option>
+                  <option value="C21|C21-02">Barcode Scanner / Printer Repair</option>
+                  <option value="C21|C21-03">POS Terminal Maintenance</option>
+                  <option value="C21|C21-04">Weighing Scale Calibration</option>
+                </optgroup>
+                <optgroup label="C22 · Automobile &amp; EV Services (₹1,350 avg. ticket)">
+                  <option value="C22|C22-01">EV Charger Installation</option>
+                  <option value="C22|C22-02">Car Electrical Repair</option>
+                  <option value="C22|C22-03">Vehicle Battery Replacement</option>
+                  <option value="C22|C22-04">GPS Tracker Installation</option>
+                </optgroup>
+                <optgroup label="C23 · Smart Home Automation (₹1,350 avg. ticket)">
+                  <option value="C23|C23-01">Smart Lighting Setup</option>
+                  <option value="C23|C23-02">Home Automation Panel Installation</option>
+                  <option value="C23|C23-03">Smart Switch &amp; Sensor Setup</option>
+                  <option value="C23|C23-04">Voice Assistant Integration</option>
+                </optgroup>
+                <optgroup label="C24 · Water Purifier &amp; RO Systems (₹1,250 avg. ticket)">
+                  <option value="C24|C24-01">RO Installation</option>
+                  <option value="C24|C24-02">Filter Replacement</option>
+                  <option value="C24|C24-03">RO Repair &amp; AMC</option>
+                  <option value="C24|C24-04">Water Softener Installation</option>
+                </optgroup>
               </select>
             </div>
 
@@ -2267,6 +2453,10 @@
       }
     };
 
+    // Every service category uses the closest of the five average-ticket profiles above.
+    const CAT_PROFILE = {"C01": "electrical", "C02": "appliances", "C03": "electrical", "C04": "solar", "C05": "appliances", "C06": "appliances", "C07": "electrical", "C08": "electrical", "C09": "appliances", "C10": "appliances", "C11": "plumbing", "C12": "electrical", "C13": "plumbing", "C14": "hvac", "C15": "appliances", "C16": "electrical", "C17": "appliances", "C18": "electrical", "C19": "electrical", "C20": "appliances", "C21": "appliances", "C22": "electrical", "C23": "electrical", "C24": "plumbing"};
+    Object.keys(CAT_PROFILE).forEach(function (code) { state.rates[code] = state.rates[CAT_PROFILE[code]]; });
+
     // Theme Toggle Logic
     const btnThemeToggle = document.getElementById('btn-theme-toggle');
     const themeText = document.getElementById('theme-text');
@@ -2806,7 +2996,7 @@
 
     // Dynamic Earnings Calculation Logic
     function calculateEarnings() {
-      const discipline = document.getElementById('calc-discipline').value;
+      const discipline = document.getElementById('calc-discipline').value.split('|')[0];
       const jobs = parseInt(document.getElementById('range-jobs').value, 10);
       const days = parseInt(document.getElementById('range-days').value, 10);
       const tier = parseInt(document.querySelector('input[name="calc-tier"]:checked')?.value || '2', 10);
