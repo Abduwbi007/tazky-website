@@ -1999,6 +1999,7 @@
         C: { label: 'Inspection & calibration', short: 'Inspect', hint: 'Audits, checks and calibration' },
         P: { label: 'Replacement', short: 'Replace', hint: 'Part, battery or consumable replacement and refills' }
       };
+      var ICONS = {C01:'cctv',C02:'laptop',C03:'router',C04:'battery-charging',C05:'landmark',C06:'washing-machine',C07:'shield-check',C08:'radio-tower',C09:'smartphone',C10:'stethoscope',C11:'tractor',C12:'zap',C13:'droplets',C14:'snowflake',C15:'printer',C16:'factory',C17:'tv',C18:'arrow-up-down',C19:'fire-extinguisher',C20:'graduation-cap',C21:'scan-barcode',C22:'car',C23:'house',C24:'glass-water'};
       var state = { q: '', type: 'ALL' };
       var grid = document.getElementById('svc-grid'), chips = document.getElementById('svc-chips');
       var search = document.getElementById('svc-search'), count = document.getElementById('svc-count');
@@ -2038,9 +2039,10 @@
           if (!subs.length) return;
           shownCats++; shownSubs += subs.length;
           html += '<article class="wbi-card rounded-3xl p-5 sm:p-6 min-w-0">' +
-            '<header class="flex items-start gap-3 mb-4">' +
-              '<span class="shrink-0 text-[11px] font-bold tracking-wider px-2.5 py-1 rounded-full bg-brand-50 dark:bg-white/10 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-white/10">' + esc(c.c) + '</span>' +
-              '<div class="min-w-0"><h3 class="text-base font-bold text-slate-700 dark:text-white leading-snug">' + esc(c.n) + '</h3>' +
+            '<header class="flex items-center gap-4 mb-4">' +
+              '<span class="shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-50 to-brand-200 dark:from-brand-900 dark:to-brand-700 text-brand-700 dark:text-brand-200 flex items-center justify-center border border-brand-100 dark:border-white/10" aria-hidden="true"><i data-lucide="' + (ICONS[c.c] || 'wrench') + '" class="w-7 h-7"></i></span>' +
+              '<div class="min-w-0"><p class="text-[11px] font-bold tracking-wider text-brand-600 dark:text-brand-300">' + esc(c.c) + '</p>' +
+              '<h3 class="text-base font-bold text-slate-700 dark:text-white leading-snug">' + esc(c.n) + '</h3>' +
               '<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">' + subs.length + (subs.length === c.s.length ? ' services' : ' of ' + c.s.length + ' services') + '</p></div>' +
             '</header>' +
             '<ul class="divide-y divide-slate-100 dark:divide-slate-800">' +
@@ -2055,6 +2057,7 @@
             '</ul></article>';
         });
         grid.innerHTML = html;
+        if (window.lucide && lucide.createIcons) lucide.createIcons();
         empty.hidden = shownCats !== 0;
         count.textContent = shownCats ? 'Showing ' + shownSubs + ' services in ' + shownCats + ' categories' : '';
       }
