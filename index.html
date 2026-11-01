@@ -3611,6 +3611,7 @@
   var D=[{"c": "C01", "n": "CCTV & Surveillance", "b": ["Hikvision", "CP Plus", "Dahua", "Godrej", "Honeywell", "Axis"]}, {"c": "C02", "n": "IT & Computer Services", "b": ["Dell", "HP", "Lenovo", "Acer", "Asus", "Apple"]}, {"c": "C03", "n": "Networking & Internet", "b": ["Cisco", "D-Link", "TP-Link", "Netgear", "Ubiquiti", "Juniper"]}, {"c": "C04", "n": "Energy & Power Backup", "b": ["Luminous", "Microtek", "Exide", "Amaron", "Tata Power Solar", "Waaree", "Su-Kam"]}, {"c": "C05", "n": "Banking & Financial Devices", "b": ["NCR", "Diebold Nixdorf", "Hitachi Payment", "GRG Banking", "Ingenico", "VeriFone", "PAX"]}, {"c": "C06", "n": "Home Appliances", "b": ["LG", "Samsung", "Whirlpool", "IFB", "Bosch", "Godrej", "Voltas", "Haier"]}, {"c": "C07", "n": "Security Systems", "b": ["Honeywell", "Bosch", "Godrej", "ESSL", "Hikvision", "CP Plus", "Zicom"]}, {"c": "C08", "n": "Telecom & Communication", "b": ["Cisco", "Panasonic", "Alcatel-Lucent", "Huawei", "Nokia", "Ericsson"]}, {"c": "C09", "n": "Mobile & Gadget Service", "b": ["Apple", "Samsung", "Xiaomi", "OnePlus", "Vivo", "Oppo", "Realme"]}, {"c": "C10", "n": "Healthcare Equipment", "b": ["Philips", "Omron", "Dr Morepen", "Yuwell", "Invacare", "Medtronic"]}, {"c": "C11", "n": "Agricultural Machinery", "b": ["Mahindra", "Kubota", "Sonalika", "John Deere", "TAFE", "Kirloskar", "Jain Irrigation"]}, {"c": "C12", "n": "Electrical Services", "b": ["Havells", "Legrand", "Schneider Electric", "Anchor by Panasonic", "Polycab", "Finolex", "Siemens"]}, {"c": "C13", "n": "Plumbing & Water Systems", "b": ["Jaquar", "Hindware", "Cera", "Kirloskar", "CRI Pumps", "Grundfos", "Supreme"]}, {"c": "C14", "n": "HVAC & Cold Storage", "b": ["Daikin", "Voltas", "Blue Star", "Carrier", "Hitachi", "Mitsubishi Electric", "Trane"]}, {"c": "C15", "n": "Office & Commercial Equipment", "b": ["Canon", "HP", "Epson", "Xerox", "Ricoh", "Brother", "Kyocera"]}, {"c": "C16", "n": "Industrial Machinery & Automation", "b": ["Siemens", "ABB", "Schneider Electric", "Mitsubishi Electric", "Atlas Copco", "Kirloskar", "Cummins"]}, {"c": "C17", "n": "Audio-Video & Entertainment", "b": ["Sony", "Samsung", "LG", "JBL", "Bose", "Yamaha", "Epson"]}, {"c": "C18", "n": "Elevator & Lift Services", "b": ["Otis", "Kone", "Schindler", "Thyssenkrupp", "Johnson Lifts"]}, {"c": "C19", "n": "Fire & Safety Equipment", "b": ["Ceasefire", "Honeywell", "Kidde", "Bharat Fire", "Safex Fire"]}, {"c": "C20", "n": "Educational & Institutional Equipment", "b": ["Samsung", "Epson", "BenQ", "ViewSonic", "Promethean", "Dell", "HP"]}, {"c": "C21", "n": "Retail & POS Equipment", "b": ["TVS Electronics", "Zebra", "Honeywell", "Epson", "Posiflex", "Datalogic", "Essae"]}, {"c": "C22", "n": "Automobile & EV Services", "b": ["Tata Power EZ Charge", "Ather", "Exide", "Amaron", "Bosch", "Mahindra", "Delta"]}, {"c": "C23", "n": "Smart Home Automation", "b": ["O Square", "Philips Hue", "Havells", "Legrand", "Google Nest", "Amazon Alexa", "Schneider Electric"]}, {"c": "C24", "n": "Water Purifier & RO Systems", "b": ["Kent", "Aquaguard", "Livpure", "Pureit", "Blue Star", "Havells", "Eureka Forbes"]}];
   var cats=document.getElementById('brand-cats'), list=document.getElementById('brand-list');
   if(!cats||!list) return;
+  var LOGO={"Acer": "acer", "Amazon Alexa": "amazonalexa", "Apple": "apple", "Asus": "asus", "Bosch": "bosch", "Bose": "bose", "Cisco": "cisco", "Dell": "dell", "Epson": "epson", "Ericsson": "ericsson", "HP": "hp", "Hitachi": "hitachi", "Huawei": "huawei", "JBL": "jbl", "John Deere": "johndeere", "Kyocera": "kyocera", "LG": "lg", "Lenovo": "lenovo", "Mahindra": "mahindra", "Netgear": "netgear", "Nokia": "nokia", "OnePlus": "oneplus", "Oppo": "oppo", "Philips Hue": "philipshue", "Samsung": "samsung", "Schneider Electric": "schneiderelectric", "Siemens": "siemens", "Sony": "sony", "TP-Link": "tplink", "Ubiquiti": "ubiquiti", "Vivo": "vivo", "Xiaomi": "xiaomi", "Panasonic": "panasonic"};
   var cur=null;
   function show(i){
     cur=i;
@@ -3621,8 +3622,15 @@
     list.innerHTML='';
     D[i].b.forEach(function(n){
       var s=document.createElement('span');
-      s.className='px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm font-semibold';
-      s.textContent=n; list.appendChild(s);
+      var s=document.createElement('span');
+      s.className='relative overflow-hidden px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm font-semibold';
+      var t=document.createElement('span'); t.className='relative z-10'; t.textContent=n; s.appendChild(t);
+      var k=LOGO[n];
+      if(k){var im=new Image(); im.alt=''; im.setAttribute('aria-hidden','true'); im.loading='lazy';
+        im.className='absolute right-1 top-1/2 -translate-y-1/2 h-[80%] w-auto max-w-[45%] object-contain pointer-events-none select-none dark:invert';
+        im.style.opacity='0.3'; im.onerror=function(){im.remove()};
+        im.src='https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/'+k+'.svg'; s.appendChild(im);}
+      list.appendChild(s);
     });
   }
   D.forEach(function(c,i){
