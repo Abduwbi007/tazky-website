@@ -1004,7 +1004,7 @@
   <section id="services" class="py-20 lg:py-28 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+      <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
         <span class="text-xs uppercase font-extrabold tracking-widest text-brand-600 dark:text-brand-400 px-3.5 py-1 rounded-full bg-brand-100 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800">
           Service Catalogue
         </span>
@@ -1013,25 +1013,26 @@
         </h2>
         <p class="text-slate-600 dark:text-slate-400 text-base">
           <strong id="svc-total-cats" class="text-brand-600 dark:text-brand-300">24</strong> categories and
-          <strong id="svc-total-subs" class="text-brand-600 dark:text-brand-300">143</strong> services. Find your trade, see the kinds of calls you will receive, and apply for the categories you are skilled in.
+          <strong id="svc-total-subs" class="text-brand-600 dark:text-brand-300">143</strong> services. Choose a category to see its services and the kinds of calls you will receive.
         </p>
       </div>
 
       <div class="max-w-5xl mx-auto mb-8 space-y-4">
-        <div class="relative">
+        <div>
           <label for="svc-search" class="sr-only">Search services</label>
-          <input id="svc-search" type="search" autocomplete="off" placeholder="Search a category or service, for example CCTV, inverter, ATM" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-full pl-5 pr-5 py-3.5 text-sm text-slate-700 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-400">
+          <input id="svc-search" type="search" autocomplete="off" placeholder="Search a category or service, for example CCTV, inverter, ATM" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-full px-5 py-3.5 text-sm text-slate-700 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-400">
         </div>
         <div id="svc-chips" class="flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Filter by type of service call"></div>
         <p id="svc-count" class="text-center text-xs text-slate-500 dark:text-slate-400" aria-live="polite"></p>
       </div>
 
-      <div id="svc-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 items-start"></div>
-      <p id="svc-empty" hidden class="text-center text-slate-500 dark:text-slate-400 py-12">No service matches that search. Try a shorter word or clear the filter.</p>
-
-      <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-        <p class="text-sm text-slate-600 dark:text-slate-400">Skilled in one or more of these categories?</p>
-        <a href="#apply" class="inline-flex items-center px-7 py-3 rounded-full text-sm font-semibold text-white bg-brand-400 hover:bg-brand-500 shadow-sm shadow-brand-400/30 transition-colors">Apply for your category</a>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-4 min-w-0">
+          <label for="svc-select" class="lg:hidden block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Service category</label>
+          <select id="svc-select" class="lg:hidden w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-400"></select>
+          <nav id="svc-cats" class="hidden lg:block rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/40 p-2 max-h-[680px] overflow-y-auto" aria-label="Service categories"></nav>
+        </div>
+        <div id="svc-panel" class="lg:col-span-8 wbi-card rounded-3xl p-6 sm:p-8 min-w-0" aria-live="polite"></div>
       </div>
     </div>
   </section>
@@ -2177,6 +2178,7 @@
     // Service catalogue (source: WB Company Service Category Taxonomy)
     (function () {
       var DATA = [{"c":"C01","n":"CCTV & Surveillance","s":[{"c":"C01-01","n":"CCTV Camera Installation","t":["I"]},{"c":"C01-02","n":"CCTV Maintenance & AMC","t":["M"]},{"c":"C01-03","n":"CCTV Repair & Troubleshooting","t":["R"]},{"c":"C01-04","n":"DVR/NVR Setup & Configuration","t":["I"]},{"c":"C01-05","n":"CCTV Cabling & Wiring","t":["I"]},{"c":"C01-06","n":"Remote Viewing / Mobile App Setup","t":["I"]},{"c":"C01-07","n":"Camera Relocation & Upgrade","t":["U"]},{"c":"C01-08","n":"Old to New System Migration","t":["U"]}]},{"c":"C02","n":"IT & Computer Services","s":[{"c":"C02-01","n":"Desktop Repair","t":["R"]},{"c":"C02-02","n":"Laptop Repair","t":["R"]},{"c":"C02-03","n":"Operating System Installation","t":["I"]},{"c":"C02-04","n":"Virus & Malware Removal","t":["R"]},{"c":"C02-05","n":"Data Recovery","t":["R"]},{"c":"C02-06","n":"Hardware Upgrade (RAM/SSD/HDD)","t":["U"]},{"c":"C02-07","n":"Printer Repair & Setup","t":["I","R"]},{"c":"C02-08","n":"Software Installation & Licensing","t":["I"]},{"c":"C02-09","n":"Computer AMC for Offices","t":["M"]},{"c":"C02-10","n":"Server Setup & Maintenance","t":["I","M"]}]},{"c":"C03","n":"Networking & Internet","s":[{"c":"C03-01","n":"Router & Modem Setup","t":["I"]},{"c":"C03-02","n":"WiFi Range Extension","t":["U"]},{"c":"C03-03","n":"Structured Cabling (LAN)","t":["I"]},{"c":"C03-04","n":"Switch & Access Point Installation","t":["I"]},{"c":"C03-05","n":"Network Troubleshooting","t":["R"]},{"c":"C03-06","n":"VPN Setup","t":["I"]},{"c":"C03-07","n":"CCTV-Network Integration","t":["I"]},{"c":"C03-08","n":"Office Network Setup","t":["I"]}]},{"c":"C04","n":"Energy & Power Backup","s":[{"c":"C04-01","n":"Solar Panel Installation","t":["I"]},{"c":"C04-02","n":"Solar Maintenance & Cleaning","t":["M"]},{"c":"C04-03","n":"Inverter Installation & Repair","t":["I","R"]},{"c":"C04-04","n":"UPS Installation & Repair","t":["I","R"]},{"c":"C04-05","n":"Battery Replacement","t":["P"]},{"c":"C04-06","n":"Generator Installation & Service","t":["I","M"]},{"c":"C04-07","n":"Stabilizer Installation","t":["I"]},{"c":"C04-08","n":"Solar Inspection & Audit","t":["C"]}]},{"c":"C05","n":"Banking & Financial Devices","s":[{"c":"C05-01","n":"ATM Maintenance","t":["M"]},{"c":"C05-02","n":"POS Machine Installation & Repair","t":["I","R"]},{"c":"C05-03","n":"Biometric Device Setup","t":["I"]},{"c":"C05-04","n":"Cash Recycler / Kiosk Support","t":["M"]},{"c":"C05-05","n":"Passbook Printer Service","t":["M"]},{"c":"C05-06","n":"Currency Counting Machine Repair","t":["R"]}]},{"c":"C06","n":"Home Appliances","s":[{"c":"C06-01","n":"AC Installation & Service","t":["I","M"]},{"c":"C06-02","n":"Refrigerator Repair","t":["R"]},{"c":"C06-03","n":"Washing Machine Repair","t":["R"]},{"c":"C06-04","n":"Microwave Repair","t":["R"]},{"c":"C06-05","n":"Water Heater / Geyser Repair","t":["R"]},{"c":"C06-06","n":"Chimney & Hob Service","t":["M"]},{"c":"C06-07","n":"Dishwasher Repair","t":["R"]},{"c":"C06-08","n":"Air Cooler Service","t":["M"]}]},{"c":"C07","n":"Security Systems","s":[{"c":"C07-01","n":"Access Control Systems","t":["I","R"]},{"c":"C07-02","n":"Video Door Phone Installation","t":["I"]},{"c":"C07-03","n":"Burglar Alarm Systems","t":["I","R"]},{"c":"C07-04","n":"Fire Alarm Systems","t":["I","R"]},{"c":"C07-05","n":"Boom Barrier Installation","t":["I"]},{"c":"C07-06","n":"Intercom Systems","t":["I","R"]},{"c":"C07-07","n":"Smart Lock Installation","t":["I"]}]},{"c":"C08","n":"Telecom & Communication","s":[{"c":"C08-01","n":"Landline Installation","t":["I"]},{"c":"C08-02","n":"EPABX Setup & Repair","t":["I","R"]},{"c":"C08-03","n":"Fiber / Broadband Installation","t":["I"]},{"c":"C08-04","n":"Mobile Tower Maintenance","t":["M"]},{"c":"C08-05","n":"Telephone Exchange Service","t":["M"]},{"c":"C08-06","n":"Intercom System Repair","t":["R"]}]},{"c":"C09","n":"Mobile & Gadget Service","s":[{"c":"C09-01","n":"Mobile Phone Screen Repair","t":["R"]},{"c":"C09-02","n":"Battery Replacement","t":["P"]},{"c":"C09-03","n":"Software / Flashing Issues","t":["R"]},{"c":"C09-04","n":"Tablet Repair","t":["R"]},{"c":"C09-05","n":"Smartwatch Repair","t":["R"]},{"c":"C09-06","n":"Mobile Accessory Setup","t":["I"]}]},{"c":"C10","n":"Healthcare Equipment","s":[{"c":"C10-01","n":"Oxygen Concentrator Service","t":["M"]},{"c":"C10-02","n":"Wheelchair & Mobility Aid Repair","t":["R"]},{"c":"C10-03","n":"Hospital Bed Maintenance","t":["M"]},{"c":"C10-04","n":"BP Monitor / Glucometer Calibration","t":["C"]},{"c":"C10-05","n":"Nebulizer Repair","t":["R"]},{"c":"C10-06","n":"Medical Refrigerator Service","t":["M"]},{"c":"C10-07","n":"Diagnostic Equipment AMC","t":["M"]}]},{"c":"C11","n":"Agricultural Machinery","s":[{"c":"C11-01","n":"Tractor Repair & Service","t":["R","M"]},{"c":"C11-02","n":"Power Tiller Repair","t":["R"]},{"c":"C11-03","n":"Water Pump Installation & Repair","t":["I","R"]},{"c":"C11-04","n":"Irrigation System Setup (Drip/Sprinkler)","t":["I"]},{"c":"C11-05","n":"Agricultural Drone Service","t":["M"]},{"c":"C11-06","n":"Sprayer & Duster Repair","t":["R"]},{"c":"C11-07","n":"Rice Mill & Thresher Maintenance","t":["M"]},{"c":"C11-08","n":"Borewell Motor Repair","t":["R"]}]},{"c":"C12","n":"Electrical Services","s":[{"c":"C12-01","n":"House Wiring","t":["I"]},{"c":"C12-02","n":"Switchboard & MCB Repair","t":["R"]},{"c":"C12-03","n":"Electrical Fault Finding","t":["R"]},{"c":"C12-04","n":"Earthing Installation","t":["I"]},{"c":"C12-05","n":"Ceiling Fan & Light Fitting","t":["I"]},{"c":"C12-06","n":"Industrial Electrical Work","t":["I","R"]}]},{"c":"C13","n":"Plumbing & Water Systems","s":[{"c":"C13-01","n":"Pipe Leak Repair","t":["R"]},{"c":"C13-02","n":"Water Tank Cleaning","t":["M"]},{"c":"C13-03","n":"Bathroom Fitting Installation","t":["I"]},{"c":"C13-04","n":"Borewell / Motor Pump Repair","t":["R"]},{"c":"C13-05","n":"Drainage Cleaning","t":["M"]},{"c":"C13-06","n":"Water Purifier & RO Service","t":["M"]}]},{"c":"C14","n":"HVAC & Cold Storage","s":[{"c":"C14-01","n":"Split / Window AC Service","t":["M"]},{"c":"C14-02","n":"Central AC Maintenance","t":["M"]},{"c":"C14-03","n":"Cold Storage Repair","t":["R"]},{"c":"C14-04","n":"Chiller Maintenance","t":["M"]},{"c":"C14-05","n":"Duct Cleaning","t":["M"]}]},{"c":"C15","n":"Office & Commercial Equipment","s":[{"c":"C15-01","n":"Printer / Copier AMC","t":["M"]},{"c":"C15-02","n":"EPABX & Intercom Setup","t":["I"]},{"c":"C15-03","n":"Biometric Attendance System","t":["I","R"]},{"c":"C15-04","n":"Projector Installation & Repair","t":["I","R"]},{"c":"C15-05","n":"Shredder Repair","t":["R"]},{"c":"C15-06","n":"Scanner Setup","t":["I"]}]},{"c":"C16","n":"Industrial Machinery & Automation","s":[{"c":"C16-01","n":"PLC / Automation Repair","t":["R"]},{"c":"C16-02","n":"Motor Rewinding","t":["R"]},{"c":"C16-03","n":"Compressor Repair","t":["R"]},{"c":"C16-04","n":"Generator / DG Set Service","t":["M"]},{"c":"C16-05","n":"Conveyor System Maintenance","t":["M"]},{"c":"C16-06","n":"Industrial Electrical AMC","t":["M"]}]},{"c":"C17","n":"Audio-Video & Entertainment","s":[{"c":"C17-01","n":"Home Theatre Installation","t":["I"]},{"c":"C17-02","n":"TV Mounting & Repair","t":["I","R"]},{"c":"C17-03","n":"Projector & Screen Setup","t":["I"]},{"c":"C17-04","n":"Sound System Installation","t":["I"]},{"c":"C17-05","n":"DJ Equipment Setup","t":["I"]}]},{"c":"C18","n":"Elevator & Lift Services","s":[{"c":"C18-01","n":"Lift Installation","t":["I"]},{"c":"C18-02","n":"Lift AMC & Repair","t":["R","M"]},{"c":"C18-03","n":"Escalator Maintenance","t":["M"]}]},{"c":"C19","n":"Fire & Safety Equipment","s":[{"c":"C19-01","n":"Fire Extinguisher Refill / Service","t":["M","P"]},{"c":"C19-02","n":"Smoke Detector Installation","t":["I"]},{"c":"C19-03","n":"Sprinkler System Maintenance","t":["M"]},{"c":"C19-04","n":"Fire Hydrant System Check","t":["C"]}]},{"c":"C20","n":"Educational & Institutional Equipment","s":[{"c":"C20-01","n":"Smart Board & Projector Setup","t":["I"]},{"c":"C20-02","n":"Biometric Attendance Systems","t":["I","R"]},{"c":"C20-03","n":"Computer Lab AMC","t":["M"]},{"c":"C20-04","n":"Public Address System Setup","t":["I"]}]},{"c":"C21","n":"Retail & POS Equipment","s":[{"c":"C21-01","n":"Billing Software Setup","t":["I"]},{"c":"C21-02","n":"Barcode Scanner / Printer Repair","t":["R"]},{"c":"C21-03","n":"POS Terminal Maintenance","t":["M"]},{"c":"C21-04","n":"Weighing Scale Calibration","t":["C"]}]},{"c":"C22","n":"Automobile & EV Services","s":[{"c":"C22-01","n":"EV Charger Installation","t":["I"]},{"c":"C22-02","n":"Car Electrical Repair","t":["R"]},{"c":"C22-03","n":"Vehicle Battery Replacement","t":["P"]},{"c":"C22-04","n":"GPS Tracker Installation","t":["I"]}]},{"c":"C23","n":"Smart Home Automation","s":[{"c":"C23-01","n":"Smart Lighting Setup","t":["I"]},{"c":"C23-02","n":"Home Automation Panel Installation","t":["I"]},{"c":"C23-03","n":"Smart Switch & Sensor Setup","t":["I"]},{"c":"C23-04","n":"Voice Assistant Integration","t":["I"]}]},{"c":"C24","n":"Water Purifier & RO Systems","s":[{"c":"C24-01","n":"RO Installation","t":["I"]},{"c":"C24-02","n":"Filter Replacement","t":["P"]},{"c":"C24-03","n":"RO Repair & AMC","t":["R","M"]},{"c":"C24-04","n":"Water Softener Installation","t":["I"]}]}];
+      var ICONS = {C01:'cctv',C02:'laptop',C03:'router',C04:'battery-charging',C05:'landmark',C06:'washing-machine',C07:'shield-check',C08:'radio-tower',C09:'smartphone',C10:'stethoscope',C11:'tractor',C12:'zap',C13:'droplets',C14:'snowflake',C15:'printer',C16:'factory',C17:'tv',C18:'arrow-up-down',C19:'fire-extinguisher',C20:'graduation-cap',C21:'scan-barcode',C22:'car',C23:'house',C24:'glass-water'};
       var TYPES = {
         I: { label: 'Install & setup', short: 'Install', hint: 'New installation, setup and commissioning' },
         R: { label: 'Repair', short: 'Repair', hint: 'Fault finding and breakdown repair' },
@@ -2185,25 +2187,24 @@
         C: { label: 'Inspection & calibration', short: 'Inspect', hint: 'Audits, checks and calibration' },
         P: { label: 'Replacement', short: 'Replace', hint: 'Part, battery or consumable replacement and refills' }
       };
-      var ICONS = {C01:'cctv',C02:'laptop',C03:'router',C04:'battery-charging',C05:'landmark',C06:'washing-machine',C07:'shield-check',C08:'radio-tower',C09:'smartphone',C10:'stethoscope',C11:'tractor',C12:'zap',C13:'droplets',C14:'snowflake',C15:'printer',C16:'factory',C17:'tv',C18:'arrow-up-down',C19:'fire-extinguisher',C20:'graduation-cap',C21:'scan-barcode',C22:'car',C23:'house',C24:'glass-water'};
-      var state = { q: '', type: 'ALL' };
-      var grid = document.getElementById('svc-grid'), chips = document.getElementById('svc-chips');
-      var search = document.getElementById('svc-search'), count = document.getElementById('svc-count');
-      var empty = document.getElementById('svc-empty');
+      var state = { q: '', type: 'ALL', cat: DATA[0].c };
+      var $ = function (id) { return document.getElementById(id); };
+      var chips = $('svc-chips'), search = $('svc-search'), count = $('svc-count');
+      var catNav = $('svc-cats'), catSelect = $('svc-select'), panel = $('svc-panel');
       var activeChip = 'px-4 py-2 rounded-full text-xs font-semibold bg-brand-500 text-white border border-brand-500 transition-colors';
       var idleChip = 'px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700 hover:border-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors';
       var total = 0; DATA.forEach(function (c) { total += c.s.length; });
-      document.getElementById('svc-total-cats').textContent = DATA.length;
-      document.getElementById('svc-total-subs').textContent = total;
+      $('svc-total-cats').textContent = DATA.length;
+      $('svc-total-subs').textContent = total;
 
-      function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+      function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+      function icon(code, cls) { return '<i data-lucide="' + (ICONS[code] || 'wrench') + '" class="' + cls + '"></i>'; }
 
       function buildChips() {
-        var keys = ['ALL'].concat(Object.keys(TYPES));
         chips.innerHTML = '';
-        keys.forEach(function (k) {
+        ['ALL'].concat(Object.keys(TYPES)).forEach(function (k) {
           var b = document.createElement('button');
-          b.type = 'button'; b.dataset.type = k;
+          b.type = 'button';
           b.className = state.type === k ? activeChip : idleChip;
           b.textContent = k === 'ALL' ? 'All call types' : TYPES[k].label;
           if (k !== 'ALL') b.title = TYPES[k].hint;
@@ -2213,8 +2214,8 @@
         });
       }
 
-      function render() {
-        var q = state.q.trim().toLowerCase(), shownCats = 0, shownSubs = 0, html = '';
+      function matches() {
+        var q = state.q.trim().toLowerCase(), out = [];
         DATA.forEach(function (c) {
           var catMatch = q && c.n.toLowerCase().indexOf(q) !== -1;
           var subs = c.s.filter(function (s) {
@@ -2222,32 +2223,71 @@
             var okText = !q || catMatch || s.n.toLowerCase().indexOf(q) !== -1 || s.c.toLowerCase().indexOf(q) !== -1;
             return okType && okText;
           });
-          if (!subs.length) return;
-          shownCats++; shownSubs += subs.length;
-          html += '<article class="wbi-card rounded-3xl p-5 sm:p-6 min-w-0">' +
-            '<header class="flex items-center gap-4 mb-4">' +
-              '<span class="shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-50 to-brand-200 dark:from-brand-900 dark:to-brand-700 text-brand-700 dark:text-brand-200 flex items-center justify-center border border-brand-100 dark:border-white/10" aria-hidden="true"><i data-lucide="' + (ICONS[c.c] || 'wrench') + '" class="w-7 h-7"></i></span>' +
-              '<div class="min-w-0"><p class="text-[11px] font-bold tracking-wider text-brand-600 dark:text-brand-300">' + esc(c.c) + '</p>' +
-              '<h3 class="text-base font-bold text-slate-700 dark:text-white leading-snug">' + esc(c.n) + '</h3>' +
-              '<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">' + subs.length + (subs.length === c.s.length ? ' services' : ' of ' + c.s.length + ' services') + '</p></div>' +
-            '</header>' +
-            '<ul class="divide-y divide-slate-100 dark:divide-slate-800">' +
-            subs.map(function (s) {
-              return '<li class="py-2.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5">' +
-                '<span class="text-sm text-slate-700 dark:text-slate-200 min-w-0">' + esc(s.n) + '</span>' +
-                '<span class="flex flex-wrap gap-1">' + s.t.map(function (k) {
-                  var on = state.type === k;
-                  return '<span title="' + esc(TYPES[k].hint) + '" class="text-[10px] font-semibold px-2 py-0.5 rounded-full ' + (on ? 'bg-brand-500 text-white' : 'bg-brand-50 dark:bg-white/10 text-brand-700 dark:text-brand-300') + '">' + TYPES[k].short + '</span>';
-                }).join('') + '</span></li>';
-            }).join('') +
-            '</ul></article>';
+          if (subs.length) out.push({ cat: c, subs: subs });
         });
-        grid.innerHTML = html;
-        if (window.lucide && lucide.createIcons) lucide.createIcons();
-        empty.hidden = shownCats !== 0;
-        count.textContent = shownCats ? 'Showing ' + shownSubs + ' services in ' + shownCats + ' categories' : '';
+        return out;
       }
 
+      function render() {
+        var found = matches(), shownSubs = 0;
+        found.forEach(function (f) { shownSubs += f.subs.length; });
+        if (!found.some(function (f) { return f.cat.c === state.cat; }) && found.length) state.cat = found[0].cat.c;
+
+        // category list (desktop) and drop-down (phones)
+        catNav.innerHTML = found.map(function (f) {
+          var on = f.cat.c === state.cat;
+          return '<button type="button" data-cat="' + f.cat.c + '" aria-current="' + (on ? 'true' : 'false') + '" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-2xl text-left transition-colors ' +
+            (on ? 'bg-white dark:bg-slate-800 shadow-sm ring-1 ring-brand-300 dark:ring-brand-700' : 'hover:bg-white/70 dark:hover:bg-slate-800/60') + '">' +
+            '<span class="shrink-0 w-9 h-9 rounded-xl flex items-center justify-center ' + (on ? 'bg-brand-400 text-white' : 'bg-brand-50 dark:bg-white/10 text-brand-700 dark:text-brand-300') + '">' + icon(f.cat.c, 'w-5 h-5') + '</span>' +
+            '<span class="min-w-0 flex-1 text-sm font-semibold ' + (on ? 'text-slate-800 dark:text-white' : 'text-slate-600 dark:text-slate-300') + '">' + esc(f.cat.n) + '</span>' +
+            '<span class="shrink-0 text-xs font-semibold tabular-nums ' + (on ? 'text-brand-600 dark:text-brand-300' : 'text-slate-400') + '">' + f.subs.length + '</span></button>';
+        }).join('');
+        catSelect.innerHTML = found.map(function (f) {
+          return '<option value="' + f.cat.c + '"' + (f.cat.c === state.cat ? ' selected' : '') + '>' + esc(f.cat.n) + ' (' + f.subs.length + ')</option>';
+        }).join('');
+
+        // detail panel
+        var cur = found.filter(function (f) { return f.cat.c === state.cat; })[0];
+        if (!cur) {
+          panel.innerHTML = '<p class="text-center text-slate-500 dark:text-slate-400 py-16">No service matches that search. Try a shorter word or clear the filter.</p>';
+        } else {
+          var used = {};
+          cur.cat.s.forEach(function (s) { s.t.forEach(function (k) { used[k] = true; }); });
+          panel.innerHTML =
+            '<header class="flex items-center gap-5 pb-6 mb-2 border-b border-slate-100 dark:border-slate-800">' +
+              '<span class="shrink-0 w-16 h-16 rounded-3xl bg-gradient-to-br from-brand-50 to-brand-200 dark:from-brand-900 dark:to-brand-700 text-brand-700 dark:text-brand-200 flex items-center justify-center border border-brand-100 dark:border-white/10" aria-hidden="true">' + icon(cur.cat.c, 'w-8 h-8') + '</span>' +
+              '<div class="min-w-0"><p class="text-xs font-bold tracking-wider text-brand-600 dark:text-brand-300">' + esc(cur.cat.c) + '</p>' +
+              '<h3 class="text-2xl font-bold text-slate-700 dark:text-white leading-tight">' + esc(cur.cat.n) + '</h3>' +
+              '<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">' + cur.subs.length + (cur.subs.length === cur.cat.s.length ? ' services' : ' of ' + cur.cat.s.length + ' services') +
+              ' &middot; ' + Object.keys(TYPES).filter(function (k) { return used[k]; }).map(function (k) { return TYPES[k].short; }).join(', ') + '</p></div>' +
+            '</header>' +
+            '<ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-10">' +
+            cur.subs.map(function (s) {
+              return '<li class="py-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-b border-slate-100 dark:border-slate-800">' +
+                '<span class="text-sm text-slate-700 dark:text-slate-200 min-w-0">' + esc(s.n) + '</span>' +
+                '<span class="flex flex-wrap gap-1">' + s.t.map(function (k) {
+                  return '<span title="' + esc(TYPES[k].hint) + '" class="text-[10px] font-semibold px-2 py-0.5 rounded-full ' + (state.type === k ? 'bg-brand-500 text-white' : 'bg-brand-50 dark:bg-white/10 text-brand-700 dark:text-brand-300') + '">' + TYPES[k].short + '</span>';
+                }).join('') + '</span></li>';
+            }).join('') + '</ul>' +
+            '<footer class="mt-6 pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">' +
+              '<p class="text-sm text-slate-600 dark:text-slate-400">Skilled in ' + esc(cur.cat.n) + '? Join the TazkY network for this category.</p>' +
+              '<a href="#apply" data-apply="' + esc(cur.cat.n) + '" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-semibold text-white bg-brand-400 hover:bg-brand-500 shadow-sm shadow-brand-400/30 transition-colors whitespace-nowrap">Apply for this category</a>' +
+            '</footer>';
+        }
+        count.textContent = found.length ? 'Showing ' + shownSubs + ' services in ' + found.length + ' categories' : '';
+        if (window.lucide && lucide.createIcons) lucide.createIcons();
+      }
+
+      catNav.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-cat]'); if (!b) return;
+        state.cat = b.getAttribute('data-cat'); render();
+      });
+      catSelect.addEventListener('change', function () { state.cat = catSelect.value; render(); });
+      panel.addEventListener('click', function (e) {
+        var a = e.target.closest('a[data-apply]'); if (!a) return;
+        var sel = document.getElementById('app-trade');
+        if (sel) { sel.value = a.getAttribute('data-apply'); }
+      });
       search.addEventListener('input', function () { state.q = search.value; render(); });
       buildChips(); render();
     })();
