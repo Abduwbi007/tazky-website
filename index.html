@@ -3338,26 +3338,24 @@
     document.getElementById('fallback-done').addEventListener('click', finishApplication);
 
     // FAQ Accordion & Live Search
+    // Icons are swapped to <svg> by the icon library, so look for either element.
     const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const questionBtn = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-      const chevron = item.querySelector('i');
-
-      questionBtn.addEventListener('click', () => {
-        const isHidden = answer.classList.contains('hidden');
-        // close others
-        faqItems.forEach(other => {
-          other.querySelector('.faq-answer').classList.add('hidden');
-          other.querySelector('.faq-question i').classList.remove('rotate-180');
-        });
-
-        if (isHidden) {
-          answer.classList.remove('hidden');
-          chevron.classList.add('rotate-180');
-        }
+    const faqChevron = (el) => el.querySelector('.faq-question svg, .faq-question i');
+    function setFaq(item, open) {
+      item.querySelector('.faq-answer').classList.toggle('hidden', !open);
+      const q = item.querySelector('.faq-question');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      const ch = faqChevron(item);
+      if (ch) ch.classList.toggle('rotate-180', open);
+    }
+    faqItems.forEach((item, idx) => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        const willOpen = item.querySelector('.faq-answer').classList.contains('hidden');
+        faqItems.forEach(other => setFaq(other, false));
+        if (willOpen) setFaq(item, true);
       });
     });
+    if (faqItems.length) setFaq(faqItems[0], true); // first answer visible on load
 
     document.getElementById('faq-search').addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase().trim();
@@ -3370,6 +3368,8 @@
           item.style.display = 'none';
         }
       });
+      const shown = [...faqItems].filter(i => i.style.display !== 'none');
+      if (term && shown.length === 1) { faqItems.forEach(o => setFaq(o, false)); setFaq(shown[0], true); }
     });
 
     // Quick Eligibility Modal Handlers
